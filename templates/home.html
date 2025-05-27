@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    {% if username %}
+      <h2>Hello, {{ username }}!</h2>
+      <a href="/tasks">View Tasks</a> |
+      <a href="/logout">Logout</a>
+    {% else %}
+      <h2>Welcome to the Task Manager!</h2>
+      <a href="/login">Login</a> |
+      <a href="/register">Register</a>
+    {% endif %}
+  </div>
+</body>
+</html>

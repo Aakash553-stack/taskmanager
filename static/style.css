@@ -1,0 +1,119 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f8;
+  margin: 40px;
+  color: #333;
+}
+
+h2 {
+  color: #2c3e50;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  padding: 10px;
+  width: 100%;
+  max-width: 400px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+
+input[type="submit"] {
+  padding: 10px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #2980b9;
+}
+
+ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+li {
+  background: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+a {
+  margin-left: 10px;
+  text-decoration: none;
+  color: #3498db;
+}
+
+a:hover {
+  color: #1d6fa5;
+}
+
+s {
+  color: #888;
+}
+.container {
+  width: 90%;
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.flash-messages {
+  list-style: none;
+  margin: 20px auto;
+  padding: 0;
+  max-width: 500px;
+  text-align: center;
+}
+
+.flash-messages li {
+  padding: 12px 20px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  font-weight: bold;
+  color: white;
+  background-color: #2ecc71; /* success green */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.flash-messages li.error {
+  background-color: #e74c3c; /* error red */
+}
+@media (max-width: 600px) {
+  body {
+    margin: 20px;
+  }
+
+  .container {
+    padding: 20px;
+  }
+
+  ul {
+    font-size: 16px;
+  }
+
+  input[type="submit"] {
+    width: 100%;
+  }
+
+  .flash-messages li {
+    font-size: 14px;
+    padding: 10px;
+  }
+}

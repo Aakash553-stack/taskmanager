@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Tasks</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <ul class="flash-messages">
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+  {% endwith %}
+
+  <h2>Hello, {{ session.username }}! Here are your tasks:</h2>
+
+  <p>
+    <strong>Show:</strong>
+    <a href="/tasks?filter=all">All</a> |
+    <a href="/tasks?filter=completed">Completed</a> |
+    <a href="/tasks?filter=incomplete">Incomplete</a>
+  </p>
+
+  <form method="POST">
+    <input type="text" name="task" required placeholder="New Task">
+    <input type="date" name="due_date" required>
+    <select name="priority" required>
+      <option value="">Select Priority</option>
+      <option value="Low">Low</option>
+      <option value="Medium">Medium</option>
+      <option value="High">High</option>
+    </select>
+    <input type="submit" value="Add Task">
+  </form>
+
+  <ul>
+    {% for task in tasks %}
+      <li>
+        {% if task[4] %}
+          ✅ <s>{{ task[1] }}</s> (Due: {{ task[2] }}, Priority: {{ task[3] }})
+          <a href="/incomplete/{{ task[0] }}">[Undo]</a>
+        {% else %}
+          {{ task[1] }} (Due: {{ task[2] }}, Priority: {{ task[3] }})
+          <a href="/complete/{{ task[0] }}">[Complete]</a>
+        {% endif %}
+        <a href="/edit/{{ task[0] }}">[Edit]</a>
+        <a href="/delete/{{ task[0] }}">[Delete]</a>
+      </li>
+    {% endfor %}
+  </ul>
+
+  <br>
+  <a href="/">Home</a> | <a href="/logout">Logout</a>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Edit Task</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Edit Task</h2>
+    <form method="POST">
+      <label>Task:</label><br>
+      <input type="text" name="content" value="{{ task[1] }}" required><br><br>
+
+      <label>Due Date:</label><br>
+      <input type="date" name="due_date" value="{{ task[2] }}" required><br><br>
+
+      <!-- ✅ Add this block -->
+      <label>Priority:</label><br>
+      <select name="priority" required>
+        <option value="Low" {% if task[3] == "Low" %}selected{% endif %}>Low</option>
+        <option value="Medium" {% if task[3] == "Medium" %}selected{% endif %}>Medium</option>
+        <option value="High" {% if task[3] == "High" %}selected{% endif %}>High</option>
+      </select><br><br>
+
+      <input type="submit" value="Save Changes">
+    </form>
+    <br>
+    <a href="/tasks">Cancel</a>
+  </div>
+</body>
+</html>
